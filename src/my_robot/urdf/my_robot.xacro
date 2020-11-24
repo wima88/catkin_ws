@@ -165,8 +165,7 @@
   </link>
 
 <!-- link for the Lidar  -->
-  <link name='hakuyo'>
-    
+  <link name='hokuyo'>
     <inertial>
       <mass value="1e-5"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -187,7 +186,7 @@
       </geometry>
     </visual>
 
-    <collision name='hakuyo_collision'>
+    <collision name='hokuyo_collision'>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <box size="0.1 0.1 0.1"/>
@@ -232,9 +231,9 @@
 
 <!--joint for the camera-->
 
-   <joint type="fixed" name="hakuyo_joint">
+   <joint type="fixed" name="hokuyo_joint">
     <origin xyz="0.15 0.0 0.1" rpy="0 0 0"/>
-    <child link="hakuyo"/>
+    <child link="hokuyo"/>
     <parent link="chassis"/>
     <axis xyz="0 1 0" rpy="0 0 0"/>
    </joint>
