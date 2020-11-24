@@ -1,0 +1,6 @@
+# derectories
+devel/
+build/
+
+#catkin_depends
+.catkin_workspace
