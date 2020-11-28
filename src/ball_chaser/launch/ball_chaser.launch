@@ -1,0 +1,20 @@
+<launch>
+
+  <!-- the drive_bot_service node-->
+  <node name = "drive_bot_service"
+        type = "drive_bot_service"
+        pkg  = "ball_chaser"
+        output="screen">
+  </node>
+  
+  <!-- the drive_bot_service node-->
+  <node name = "process_image_client"
+        type = "process_image_client"
+        pkg  = "ball_chaser"
+        output="screen">
+  </node>
+
+</launch>
+
+
+
