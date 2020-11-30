@@ -45,29 +45,32 @@ void process_image_callback(const sensor_msgs::Image img)
       }
     }
     
-    //drive logic
-    if((pix_location <leftMargin)) 
+    if(ball_found)
     {
-      if(!ball_found) // corner case when ball is not in screen
-      {
-        drive_robot(0,0);
-      }
-      else
+      if((pix_location <leftMargin)) 
       {
         //drive left
         drive_robot(0.25,0.5);
       }
+    
+      else if(pix_location>leftMargin && pix_location<rightMargin)
+      {
+        //drive straight
+        drive_robot(0.5,0);
+      }
+      else if (pix_location>rightMargin && pix_location< img.data.size())
+      {
+        //drive left
+        drive_robot(0.25,-0.5);
+      }
+
     }
-    else if(pix_location>leftMargin && pix_location<rightMargin)
+
+    if(!ball_found)
     {
-      //drive straight
-      drive_robot(0.5,0);
+      drive_robot(0,0);
     }
-    else if (pix_location>rightMargin && pix_location< img.data.size())
-    {
-      //drive left
-      drive_robot(0.25,-0.5);
-    }
+    
 
    
     // TODO: Loop through each pixel in the image and check if there's a bright white one
